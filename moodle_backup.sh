@@ -73,7 +73,7 @@ while true; do
         break
     fi
 done
-
+sudo apt -y install zip unzip
 sudo mkdir /tmp/moodlebackup
 TEMPPATH=/tmp/moodlebackup
 echo -e "\n...............Start Database Export .....................\n"
@@ -97,6 +97,6 @@ sudo zip -r /$BKPATH/moodlebk_`date +%Y%m%d`.zip  /$TEMPPATH  && echo -e "\n....
 sudo rm -rf /tmp/moodlebackup/
 
 echo -e "\n ...............  See Backup File .........\n"
-ls -l $BKPATH
-
+sudo find /$BKPATH/ -type f | grep moodlebk_`date +%Y%m%d`.zip
+echo -e "\n"
 
